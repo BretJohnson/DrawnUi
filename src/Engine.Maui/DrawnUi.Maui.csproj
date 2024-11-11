@@ -132,6 +132,7 @@
     <AndroidAarLibrary Remove="Controls\Extensions\**" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Draw\Text\" />
     <Folder Include="Internals\Handlers\" />
     <Folder Include="Shared\" />
     <Folder Include="Views\Compat\" />
@@ -153,6 +154,10 @@
     <Compile Include="Shared/**/*.*pple.cs">
       <Link>Platforms/iOS/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Engine\DrawnUi.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,6 +9,8 @@ namespace Sandbox
         {
             base.Draw(context, destination, scale);
 
+            SkiaLabel label = new SkiaLabel();
+
 
             SKCanvas canvas = context.Canvas;
 

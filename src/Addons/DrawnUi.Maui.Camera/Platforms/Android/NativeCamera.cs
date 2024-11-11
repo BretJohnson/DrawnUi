@@ -1059,7 +1059,6 @@ public partial class NativeCamera : Java.Lang.Object, ImageReader.IOnImageAvaila
         }
     }
 
-
     public enum CameraProcessorState
     {
         None,

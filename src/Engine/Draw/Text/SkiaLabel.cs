@@ -8,7 +8,7 @@ using Color = Microsoft.Maui.Graphics.Color;
 using Font = Microsoft.Maui.Font;
 using PropertyChangingEventArgs = Microsoft.Maui.Controls.PropertyChangingEventArgs;
 
-namespace DrawnUi.Maui.Draw
+namespace DrawnUi.Draw
 {
     //todo
 
@@ -23,7 +23,7 @@ namespace DrawnUi.Maui.Draw
 
 
     [ContentProperty("Spans")]
-    public partial class SkiaLabel : SkiaControl, ISkiaGestureListener, IText
+    public partial class SkiaLabel : DrawnControl, ISkiaGestureListener, IText
     {
         /// <summary>
         /// TODO IText?
@@ -573,7 +573,7 @@ namespace DrawnUi.Maui.Draw
             SKPaint paint,
             string textIn, float maxWidth)
         {
-            SKRect bounds = new SKRect();
+            RectF bounds = new RectF();
             var cycle = "";
             var limit = 0;
             float resultWidth = 0;
@@ -1050,24 +1050,24 @@ namespace DrawnUi.Maui.Draw
 
                     if (lineSpan.Span is IDrawnTextSpan drawn) //MIXED CONTENT SPANS
                     {
-                        SKRect drawnDestination;
+                        RectF drawnDestination;
 
                         var drawnX = (float)Math.Round(alignedLineDrawingStartX + offsetX);
                         if (drawn.VerticalAlignement == DrawImageAlignment.Center)
                         {
                             var drawnY = (float)Math.Round(line.Bounds.Bottom - lineSpan.Size.Height - (line.Bounds.Height - lineSpan.Size.Height) / 2f);
-                            drawnDestination = new SKRect(drawnX, drawnY, drawnX + lineSpan.Size.Width, line.Bounds.Bottom);
+                            drawnDestination = new RectF(drawnX, drawnY, drawnX + lineSpan.Size.Width, line.Bounds.Bottom);
                         }
                         else
                         if (drawn.VerticalAlignement == DrawImageAlignment.End)
                         {
                             var drawnY = (float)Math.Round(line.Bounds.Bottom - lineSpan.Size.Height);
-                            drawnDestination = new SKRect(drawnX, drawnY, drawnX + lineSpan.Size.Width, line.Bounds.Bottom);
+                            drawnDestination = new RectF(drawnX, drawnY, drawnX + lineSpan.Size.Width, line.Bounds.Bottom);
                         }
                         else
                         {
                             var drawnY = (float)Math.Round(line.Bounds.Top);
-                            drawnDestination = new SKRect(drawnX, drawnY, drawnX + lineSpan.Size.Width, line.Bounds.Bottom);
+                            drawnDestination = new RectF(drawnX, drawnY, drawnX + lineSpan.Size.Width, line.Bounds.Bottom);
                         }
 
                         drawn.Render(ctx, drawnDestination, (float)scale);
@@ -1649,7 +1649,7 @@ namespace DrawnUi.Maui.Draw
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float MeasureTextWidth(SKPaint paint, string text)
         {
-            var rect = SKRect.Empty;
+            var rect = RectF.Empty;
             MeasureText(paint, text, ref rect);
             return rect.Width;
         }
@@ -1661,7 +1661,7 @@ namespace DrawnUi.Maui.Draw
         /// <param name="text"></param>
         /// <param name="bounds"></param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void MeasureText(SKPaint paint, string text, ref SKRect bounds)
+        public static void MeasureText(SKPaint paint, string text, ref RectF bounds)
         {
             paint.MeasureText(text, ref bounds);
 
@@ -2638,7 +2638,6 @@ namespace DrawnUi.Maui.Draw
             get { return (bool)GetValue(KeepSpacesOnLineBreaksProperty); }
             set { SetValue(KeepSpacesOnLineBreaksProperty, value); }
         }
-
 
         public static readonly BindableProperty FontWeightProperty = BindableProperty.Create(
             nameof(FontWeight),

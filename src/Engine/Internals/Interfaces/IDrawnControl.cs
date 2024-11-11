@@ -1,11 +1,13 @@
-﻿namespace DrawnUi.Maui.Draw;
+﻿using AnywhereUI;
 
-public interface ISkiaControl : IDrawnBase
+namespace DrawnUi.Draw;
+
+public interface IDrawnControl : IDrawnBase
 {
     IDrawnBase Parent { get; set; }
 
-    Thickness Margin { get; }
-    Thickness Padding { get; }
+    ThicknessF Margin { get; }
+    ThicknessF Padding { get; }
 
     void SetParent(IDrawnBase parent);
 

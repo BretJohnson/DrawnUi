@@ -1,4 +1,6 @@
-﻿namespace DrawnUi.Maui.Infrastructure;
+﻿using AnywhereUI;
+
+namespace DrawnUi.Infrastructure;
 
 public struct MeasuringConstraints
 {
@@ -9,6 +11,6 @@ public struct MeasuringConstraints
     /// </summary>
     public Thickness TotalMargins { get; set; }
 
-    public SKSize Request { get; set; }
-    public SKRect Content { get; set; }
+    public SizeF Request { get; set; }
+    public RectF Content { get; set; }
 }

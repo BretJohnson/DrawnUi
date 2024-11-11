@@ -1,7 +1,4 @@
-﻿using DrawnUi.Maui.Draw;
-using DrawnUi.Maui.Draw;
-
-namespace DrawnUi.Maui.Draw;
+﻿namespace DrawnUi.Draw;
 
 public interface IDrawnBase : IDisposable, ICanBeUpdatedWithContext
 {

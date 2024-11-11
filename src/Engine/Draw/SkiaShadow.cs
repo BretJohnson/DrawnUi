@@ -1,4 +1,6 @@
-﻿namespace DrawnUi.Maui.Draw;
+﻿using DrawnUi.Draw;
+
+namespace DrawnUi.Draw;
 
 public class SkiaShadow : BindableObject
 {

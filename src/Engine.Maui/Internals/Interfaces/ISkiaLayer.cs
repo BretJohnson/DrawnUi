@@ -1,8 +1,9 @@
-﻿namespace DrawnUi.Maui.Draw;
+﻿using DrawnUi.Draw;
+
+namespace DrawnUi.Maui.Draw;
 
 public interface ISkiaLayer : ISkiaControl
 {
-
 	/// <summary>
 	/// Cached layer image
 	/// </summary>
@@ -14,7 +15,4 @@ public interface ISkiaLayer : ISkiaControl
 	public bool HasValidSnapshot { get; set; }
 
 	void DrawLayerImage(SkiaDrawingContext context, SKRect destination, float scale);
-
-
-
 }

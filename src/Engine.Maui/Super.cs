@@ -25,9 +25,9 @@ using System.Runtime.CompilerServices;
     "DrawnUi.Maui.Views")]
 
 
-namespace DrawnUi.Maui.Draw;
+namespace DrawnUi.Draw;
 
-public partial class Super
+public partial class Super : SuperBase
 {
     static Super()
     {

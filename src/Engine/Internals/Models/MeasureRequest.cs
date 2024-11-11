@@ -1,4 +1,6 @@
-﻿namespace DrawnUi.Maui.Draw;
+﻿using AnywhereUI;
+
+namespace DrawnUi.Draw;
 
 public struct MeasureRequest
 {
@@ -11,7 +13,7 @@ public struct MeasureRequest
         Scale = scale;
     }
 
-    public MeasureRequest(SKRect rectForChildrenPixels, float width, float height, float scale)
+    public MeasureRequest(RectF rectForChildrenPixels, float width, float height, float scale)
     {
         Destination = rectForChildrenPixels;
         WidthRequest = width;
@@ -20,7 +22,7 @@ public struct MeasureRequest
     }
 
     public bool IsSame { get; set; }
-    public SKRect Destination { get; set; }
+    public RectF Destination { get; set; }
     public float WidthRequest { get; set; }
     public float HeightRequest { get; set; }
     public float Scale { get; set; }

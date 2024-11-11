@@ -1,4 +1,4 @@
-﻿namespace DrawnUi.Infrastructure;
+﻿namespace DrawnUi.Maui.Infrastructure;
 
 public class VisualTreeChain
 {
@@ -28,7 +28,6 @@ public class VisualTreeChain
     /// <summary>
     /// Perf cache for node indices
     /// </summary>
-    public Dictionary<SkiaControl, int> NodeIndices { get; set; }
 
     /// <summary>
     /// Final transform of the chain
